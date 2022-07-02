@@ -36,6 +36,24 @@ app.post('/users', (req, res) => {
 
 
 
+//Delete Method
+app.delete('/users/:id', (req, res) => {
+    const id = req.params.id;
+    console.log('deleted ' + id);
+    res.send({status: 'deleted', id: id});
+})
+
+
+
+//PUT Method
+app.put('/users/:id', (req, res) => {
+    const id = req.params.id;
+    console.log('updated ' + id);
+    res.send({status: 'updated', id: id});
+})
+
+
+
 app.listen(port, () => {
     console.log(`Listening on Port ${port}`);
 })

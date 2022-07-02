@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>Users</title>
 </head>
 <body>
-    <h1>Hello From index.html</h1>
+    <h1>Hello From users.html</h1>
 
     <form action="/users" method="POST">
         <input type="text" name="user" value="xyz">
@@ -15,28 +15,26 @@
         <button type="submit">Submit</button>
     </form>
 
-    <button class="btn">Click</button>
+    <button class="btn">Get JSON</button>
+    <button class="btn2">Get Users</button>
 
     <script>
         const btn = document.querySelector('.btn');
+        const btn2 = document.querySelector('.btn2');
         const myId = document.querySelector('input[name = "id"]');
 
+        
         btn.addEventListener('click', () => {
             console.log('clicked');
 
-            const endPoint = '/users';
-            const id = myId.value;
-
-            fetch(endPoint + '/' + id, {
-                method: 'delete'
-            }).then(res => res.json())
-            .then(data => console.log(data));
-
-            fetch(endPoint + '/' + id, {
-                method: 'put'
-            }).then(res => res.json())
-            .then(data => console.log(data));
+            fetch('http://localhost:8080/api').then(res => res.json()).then(data => console.log(data));
         })
+
+        btn2.addEventListener('click', () => {
+            fetch('')
+        })
+
+        
     </script>
 </body>
 </html>
