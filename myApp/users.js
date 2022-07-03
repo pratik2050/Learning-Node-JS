@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const bp = require('body-parser'); 
+const uRouter = require('./users_route');
 
 const app = express();
 const port = process.env.port || 8080;
@@ -9,6 +10,8 @@ const url = path.join(__dirname, 'users.html');
 const myObj = require('./user_module');
 
 app.use(bp.urlencoded({extended:true}));
+
+
 
 
 app.get('/', (req, res) => {
